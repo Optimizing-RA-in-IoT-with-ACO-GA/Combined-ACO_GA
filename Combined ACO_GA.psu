@@ -1,0 +1,81 @@
+CLASS CombinedACO_GA:
+    METHOD initialize(num_ants, num_iterations, decay, alpha, beta, population_size, generations, mutation_rate):
+        SET this.num_ants TO num_ants
+        SET this.num_iterations TO num_iterations
+        SET this.decay TO decay
+        SET this.alpha TO alpha
+        SET this.beta TO beta
+        SET this.population_size TO population_size
+        SET this.generations TO generations
+        SET this.mutation_rate TO mutation_rate
+
+    METHOD generate_all_paths(cost_matrix, pheromone):
+        INITIALIZE all_paths AS an empty list
+        FOR each ant FROM 1 TO num_ants:
+            SET path TO CALL aco_generate_path WITH cost_matrix AND pheromone
+            ADD path TO all_paths
+        RETURN all_paths
+
+    METHOD aco_generate_path(cost_matrix, pheromone):
+        INITIALIZE path AS an empty list
+        INITIALIZE visited AS an empty set
+        SELECT current_node randomly from num_nodes
+        ADD current_node TO visited AND path
+        WHILE size of visited IS LESS THAN num_nodes:
+            CALCULATE move_prob USING CALL aco_calculate_move_prob WITH current_node, visited, pheromone, cost_matrix
+            NORMALIZE move_prob
+            SELECT next_node BASED ON move_prob
+            ADD next_node TO path AND visited
+            SET current_node TO next_node
+        RETURN path
+
+    METHOD aco_calculate_move_prob(current_node, visited, pheromone, cost_matrix):
+        INITIALIZE move_prob AS a list of zeros with size of cost_matrix
+        FOR i FROM 1 TO size of cost_matrix:
+            IF i IS NOT visited:
+                IF cost_matrix[current_node][i] IS infinity:
+                    SET move_prob[i] TO 0
+                ELSE:
+                    SET move_probabilities[i] TO pheromone_matrix[current_node][i] ^ alpha * ((1.0 / cost_matrix[current_node][i]) ^ beta)
+        RETURN move_prob
+
+    METHOD ga_fitness(individual, cost_matrix):
+        INITIALIZE total_cost TO 0
+        FOR i FROM 1 TO length of individual - 1:
+            ADD cost_matrix[individual[i]][individual[i + 1]] TO total_cost
+        RETURN 1 / total_cost
+
+    METHOD ga_selection(population, fitnesses):
+        CALCULATE the total fitness
+        DETERMINE selection probabilities based on fitnesses
+        SELECT individuals from population based on selection probabilities
+        RETURN selected individuals
+
+    METHOD ga_crossover(parent1, parent2):
+        SELECT a random crossover point
+        CREATE child1 by combining parts of parent1 and parent2
+        CREATE child2 by combining parts of parent2 and parent1
+        RETURN child1 AND child2
+
+    METHOD ga_mutate(individual):
+        IF a random value is less than mutation_rate:
+            SELECT two random indices in individual
+            SWAP the values at these indices
+        RETURN individual
+
+    METHOD run(cost_matrix):
+        INITIALIZE pheromone_matrix AS a matrix with dimensions (number_of_nodes, number_of_nodes) filled with values (1 / number_of_nodes)
+        SET population TO CALL generate_all_paths WITH cost_matrix AND pheromone
+        FOR each generation FROM 1 TO generations:
+            CALCULATE fitnesses USING CALL ga_fitness FOR each individual in population
+            SELECT individuals USING CALL ga_selection WITH population AND fitnesses
+            INITIALIZE next_generation AS an empty list
+            FOR each pair of selected individuals:
+                SET child1 AND child2 TO CALL ga_crossover WITH parent1 AND parent2
+                ADD CALL ga_mutate WITH child1 TO next_generation
+                ADD CALL ga_mutate WITH child2 TO next_generation
+            SET population TO next_generation
+
+        CALCULATE fitnesses USING CALL ga_fitness FOR each individual in population
+        FIND the individual with the highest fitness in the final population
+        RETURN the best individual AND its corresponding fitness value
