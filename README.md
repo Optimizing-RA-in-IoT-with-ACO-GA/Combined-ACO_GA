@@ -28,10 +28,7 @@ The `CombinedACO_GA` class integrates ACO and GA algorithms to solve optimizatio
 The final solution is determined as the individual with the highest fitness after multiple generations of optimization.
 
 ## Flowchart
-![combinedACO_GA-En](https://github.com/user-attachments/assets/17da9884-9aed-4c80-b90f-db84839bd852)
+![combinedACO_GA-En2](https://github.com/user-attachments/assets/c454a02d-a4a7-470a-a08f-80071582c9b0)
 
 ## Conclusion
 The Combined ACO-GA algorithm effectively merges the strengths of ACO and GA, resulting in a robust optimization method suitable for various applications. This approach not only enhances the quality of solutions but also improves computational efficiency.
-
-## Contact
-For inquiries or feedback, please reach out to [your.email@example.com].
