@@ -28,9 +28,6 @@ The `CombinedACO_GA` class integrates ACO and GA algorithms to solve optimizatio
 The final solution is determined as the individual with the highest fitness after multiple generations of optimization.
 
 ## Flowchart
-![combinedACO_GA-En2](https://github.com/user-attachments/assets/c454a02d-a4a7-470a-a08f-80071582c9b0)
-
-<div style="text-align:center"><img src="https://github.com/user-attachments/assets/c454a02d-a4a7-470a-a08f-80071582c9b0"/></div>
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/c454a02d-a4a7-470a-a08f-80071582c9b0"/>
