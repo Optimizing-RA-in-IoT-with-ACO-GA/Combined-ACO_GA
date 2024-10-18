@@ -1,4 +1,4 @@
-![combinedACO_GA-En](https://github.com/user-attachments/assets/7c716cac-2b52-4c75-8747-d8679040e354)# Combined-ACO_GA
+# Combined-ACO_GA
 
 ## Overview
 The **Combined ACO-GA** method presents an integrated approach where **Ant Colony Optimization (ACO)** and **Genetic Algorithm (GA)** are merged into a single cohesive algorithm. This innovative strategy simultaneously leverages the unique strengths of both techniques, aiming to dynamically balance exploration and exploitation during the optimization process. By combining the pheromone-driven search of ACO with the evolutionary operators of GA, this method delivers more precise and efficient solutions.
