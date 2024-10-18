@@ -16,3 +16,8 @@ The Combined ACO-GA repository implements a unified hybrid optimization algorith
 - Required libraries (install using `pip`):
   - numpy
   - matplotlib
+
+ ### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/combined-aco-ga.git
