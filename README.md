@@ -30,7 +30,11 @@ The final solution is determined as the individual with the highest fitness afte
 ## Flowchart
 ![combinedACO_GA-En2](https://github.com/user-attachments/assets/c454a02d-a4a7-470a-a08f-80071582c9b0)
 
-<div style="text-align:center"><img src="https://github.com/user-attachments/assets/c454a02d-a4a7-470a-a08f-80071582c9b0" /></div>
+<div style="text-align:center"><img src="https://github.com/user-attachments/assets/c454a02d-a4a7-470a-a08f-80071582c9b0"/></div>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c454a02d-a4a7-470a-a08f-80071582c9b0"/>
+</p>
 
 ## Conclusion
 The Combined ACO-GA algorithm effectively merges the strengths of ACO and GA, resulting in a robust optimization method suitable for various applications. This approach not only enhances the quality of solutions but also improves computational efficiency.
