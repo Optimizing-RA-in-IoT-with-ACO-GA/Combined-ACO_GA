@@ -26,6 +26,3 @@ The flowchart of the proposed combined algorithm is illustrated below.
 The `CombinedACO_GA` class integrates ACO and GA algorithms for solving optimization problems. The process starts by generating an initial population of solutions using the `generate_all_paths` function in ACO, where paths are created based on calculated pheromone levels and probabilities. GA then iteratively refines these solutions using `ga_fitness` to evaluate solutions, `ga_crossover` to combine sections of different solutions, and `ga_mutate` to introduce variability. The final solution is the individual with the highest fitness after several generations of optimization.
 
 The final solution is determined as the individual with the highest fitness after multiple generations of optimization.
-
-## Conclusion
-The Combined ACO-GA algorithm effectively merges the strengths of ACO and GA, resulting in a robust optimization method suitable for various applications. This approach not only enhances the quality of solutions but also improves computational efficiency.
